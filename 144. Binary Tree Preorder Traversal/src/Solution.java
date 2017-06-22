@@ -1,30 +1,53 @@
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
+import java.util.Stack;
 
 public class Solution {
 	// Solution 1
+//	public List<Integer> preorderTraversal(TreeNode root) {
+//		List<Integer> res = new ArrayList<Integer>();
+//		if (root == null) {
+//			return res;
+//		}
+//		Deque<TreeNode> queue = new ArrayDeque<TreeNode>();
+//		queue.add(root);
+//
+//		while (!queue.isEmpty()) {
+//			TreeNode node = queue.poll();
+//			res.add(node.val);
+//
+//			if (node.right != null) {
+//				queue.addFirst(node.right);
+//			}
+//
+//			if (node.left != null) {
+//				queue.addFirst(node.left);
+//			}
+//
+//		}
+//		return res;
+//	}
+	// Solution 2
 	public List<Integer> preorderTraversal(TreeNode root) {
 		List<Integer> res = new ArrayList<Integer>();
 		if (root == null) {
 			return res;
 		}
-		Deque<TreeNode> queue = new ArrayDeque<TreeNode>();
-		queue.add(root);
-
-		while (!queue.isEmpty()) {
-			TreeNode node = queue.poll();
+		Stack<TreeNode> stack = new Stack<TreeNode>();
+		stack.add(root);
+		
+		while (!stack.empty()) {
+			TreeNode node = stack.pop();
 			res.add(node.val);
-
+			
 			if (node.right != null) {
-				queue.addFirst(node.right);
+				stack.add(node.right);
 			}
-
+			
 			if (node.left != null) {
-				queue.addFirst(node.left);
+				stack.add(node.left);
 			}
-
+			
 		}
 		return res;
 	}
