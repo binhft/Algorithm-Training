@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class Solution {
@@ -36,7 +35,7 @@ public class Solution {
 		if (itemNum == items.length) {
 			return true;
 		}
-		if (count > 6e7) {
+		if (count > 5e7) {
 			return false;
 		}
 
@@ -155,8 +154,8 @@ public class Solution {
 		}
 
 		int min = getMin(maxWeight, candyWeights);
-		System.out.println("min = " + min);
-		System.out.println("max = " + max);
+//		System.out.println("min = " + min);
+//		System.out.println("max = " + max);
 		if (max == min) {
 			return min;
 		}
@@ -185,10 +184,10 @@ public class Solution {
 			}
 			boolean[][] doesBagContainItem = new boolean[max][items.length];
 			if (!pack(items, bagFreeSpace, doesBagContainItem, 0)) {
-				System.out.println("Count " + count);
+//				System.out.println("Count " + count);
 				break;
 			}
-			System.out.println("Count " + count);
+//			System.out.println("Count " + count);
 
 		}
 		return max + 1;
@@ -201,6 +200,8 @@ public class Solution {
 		System.out.println(new Solution().minimumBags(10, new int[] { 8, 1, 1, 1, 1, 1, 1, 1 }));
 		System.out.println(new Solution().minimumBags(100, new int[] { 10, 10, 10, 10, 10, 10, 10, 10, 11, 12, 13, 9, 1,
 				20, 60, 44, 45, 46, 47, 48, 49, 10, 21, 27, 17, 80, 49, 49, 49, 49 }));
+		System.out.println(new Solution().minimumBags(100, new int[] { 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49,
+				49, 49, 49, 24, 25, 26, 24, 25, 26, 24, 25, 26 }));
 	}
 
 }
